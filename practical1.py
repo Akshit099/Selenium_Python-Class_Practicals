@@ -10,7 +10,7 @@ details = {893: "jksdl",
 
 for id, password in details.items():
     try:
-            driver = webdriver.Chrome()
+            driver : webdriver = webdriver.Chrome()
             driver.get("https://www.google.com")
             driver.maximize_window()
             element : webelement = driver.find_element(By.NAME, "q")
@@ -23,9 +23,12 @@ for id, password in details.items():
             print("URL:  ", driver.current_url)
             print("Page Source:  ", driver.page_source[:10])
 
+            # verifying the page title
             assert "E-Governance" in driver.title
             print("Success!")
+            
     except:
         print("Error Occurred!")
+
     finally:
         driver.close()
